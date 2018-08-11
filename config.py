@@ -1,0 +1,2 @@
+TOKEN = '643179759:AAEjpuampTFtBHNKgoyngj2-L0K2DSH7mb0'
+APP_NAME = 'ik61bot'
