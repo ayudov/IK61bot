@@ -49,7 +49,7 @@ def answer_message(message):
         for x in result:
             if message.text in x.get('All name').split(' '):
                 send = True
-                bot.send_message(message.chat.id, "Я знайшов ось кого:\n\n"+'<b>ПІБ</b>: '+'<b>Посилання на Телеграм: </b>'+str(x.get('TG'))+str(x.get('All name'))+'\n<b>e-mail</b>: '+str(x.get('e-mail'))+'\n<b>Номер телефону</b>: '+'0'+str(x.get('tel.'))+'\n<b>День народження</b>: '+str(x.get('Birth date'))+'\n<b>Гуртожиток</b>: '+str(x.get('info')), parse_mode='HTML')
+                bot.send_message(message.chat.id, "Я знайшов ось кого:\n\n"+'<b>ПІБ</b>: '+'\n<b>Посилання на Телеграм: </b>'+str(x.get('TG'))+str(x.get('All name'))+'\n<b>e-mail</b>: '+str(x.get('e-mail'))+'\n<b>Номер телефону</b>: '+'0'+str(x.get('tel.'))+'\n<b>День народження</b>: '+str(x.get('Birth date'))+'\n<b>Гуртожиток</b>: '+str(x.get('info')), parse_mode='HTML')
     if send == False:
         bot.send_message(message.chat.id, "Нажаль в списку немає такої людини, ти впевнений, що все вірно ввів?")
     #for x in result:
