@@ -32,7 +32,7 @@ def send_welcome(message):
 @bot.message_handler(commands=['help'])    
 def send_help(message):
     bot.send_message(message.chat.id,'Это /help')
-    bot.send_message(message.chat.id, "Ось тобі деяка основна інформація:\n\n<a href='http://rozklad.kpi.ua/Schedules/ViewSchedule.aspx?g=2c7c806a-e8c2-4dac-a36e-f53c2b9a51f6'>Розклад</a>", parse_mode='HTML')
+    bot.send_message(message.chat.id, "Ось тобі деяка основна інформація:\n\n%xF0%x9F%x93%x85<b><a href='http://rozklad.kpi.ua/Schedules/ViewSchedule.aspx?g=2c7c806a-e8c2-4dac-a36e-f53c2b9a51f6'>Розклад</a></b>", parse_mode='HTML')
     
 @bot.message_handler(content_types=["text"]) #Любой текст
 def answer_message(message):
