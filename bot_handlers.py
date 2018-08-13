@@ -27,8 +27,12 @@ sheet = client.open('IK-61 data.xlsx').sheet1
 #----------
 @bot.message_handler(commands=['start'])  # Выполняется, когда пользователь нажимает на start
 def send_welcome(message):
-    bot.send_message(message.chat.id, "<b>Привіт, тебе вітає телеграм бот групи ІК-61</b>\nБудь-ласка, введи <i>ім'я</i> або <i>призвище</i> <b>українською</b> мовою одногрупника про котрого ти хочеш отримати інформацію ", parse_mode='HTML')
+    bot.send_message(message.chat.id, "<b>Привіт, тебе вітає телеграм бот групи ІК-61</b>\nБудь-ласка, введи <i>ім'я</i> або <i>призвище</i> <b>українською</b> мовою одногрупника про котрого ти хочеш отримати інформацію", parse_mode='HTML')
 
+@bot.message_handler(commands=['help'])    
+def send_help(messsage):
+    bot.send_message(message.chat.id, "Ось тобі вся основна інформація:\n", parse_mode='HTML')
+    
 @bot.message_handler(content_types=["text"]) #Любой текст
 def answer_message(message):
 
@@ -45,7 +49,7 @@ def answer_message(message):
         for x in result:
             if message.text in x.get('All name').split(' '):
                 send = True
-                bot.send_message(message.chat.id, "Я знайшов ось кого:\n\n"+'<b>ПІБ</b>: '+str(x.get('All name'))+'\n<b>e-mail</b>: '+str(x.get('e-mail'))+'\n<b>Номер телефону</b>: '+'0'+str(x.get('tel.'))+'\n<b>День народження</b>: '+str(x.get('Birth date'))+'\n<b>Гуртожиток</b>: '+str(x.get('info')), parse_mode='HTML')
+                bot.send_message(message.chat.id, "Я знайшов ось кого:\n\n"+'<b>ПІБ</b>: '+'<b>Посилання на Телеграм: </b>'+str(x.get('TG'))+str(x.get('All name'))+'\n<b>e-mail</b>: '+str(x.get('e-mail'))+'\n<b>Номер телефону</b>: '+'0'+str(x.get('tel.'))+'\n<b>День народження</b>: '+str(x.get('Birth date'))+'\n<b>Гуртожиток</b>: '+str(x.get('info')), parse_mode='HTML')
     if send == False:
         bot.send_message(message.chat.id, "Нажаль в списку немає такої людини, ти впевнений, що все вірно ввів?")
     #for x in result:
