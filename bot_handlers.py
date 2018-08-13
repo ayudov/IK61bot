@@ -27,16 +27,23 @@ sheet = client.open('IK-61 data.xlsx').sheet1
 #----------
 @bot.message_handler(commands=['start'])  # Выполняется, когда пользователь нажимает на start
 def send_welcome(message):
-    bot.send_message(message.chat.id, "<b>Привіт, тебе вітає телеграм бот групи ІК-61</b>\nБудь-ласка, введи <i>ім'я</i> або <i>призвище</i> <b>українською</b> мовою одногрупника про котрого ти хочеш отримати інформацію.", parse_mode='HTML')
+    bot.send_message(message.chat.id, "<b>Привіт, тебе вітає телеграм бот групи ІК-61</b>\nБудь-ласка, введи <i>ім'я</i> або <i>призвище</i> <b>українською</b> мовою одногрупника про котрого ти хочеш отримати інформацію.\n<i>Для більшої інформації відправ /help</i>", parse_mode='HTML')
 
-@bot.message_handler(commands=['help'])    
-def send_help(message):
-    bot.send_message(message.chat.id,'Это /help📅')
-    bot.send_message(message.chat.id, 
-                    "Ось тобі деяка основна інформація:\n\n"+
+@bot.message_handler(commands=['sites'])  
+def sen_sites(message):
+     bot.send_message(message.chat.id, 
+                    "сайти КПІ:\n\n"+
                     "📅 <a href='http://rozklad.kpi.ua/Schedules/ViewSchedule.aspx?g=2c7c806a-e8c2-4dac-a36e-f53c2b9a51f6'>Розклад</a>"+
                     '\n💻 <a href = "http://kpi.ua/fiot">ФІОТ</a>',
                     parse_mode='HTML')
+    
+@bot.message_handler(commands=['help'])    
+def send_help(message):
+    bot.send_message(message.chat.id,
+                    '/links - посилання на бесіди та канали'+
+                    '/sites - сайти КПІ'+
+                    '/other - додаткова інформація')
+   
 
 @bot.message_handler(content_types=["text"]) #Любой текст
 def answer_message(message):
