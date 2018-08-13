@@ -27,7 +27,7 @@ sheet = client.open('IK-61 data.xlsx').sheet1
 #----------
 @bot.message_handler(commands=['start'])  # Выполняется, когда пользователь нажимает на start
 def send_welcome(message):
-    bot.send_message(message.chat.id, "<b>Привіт, тебе вітає телеграм бот групи ІК-61</b>\nБудь-ласка, введи <i>ім'я</i> або <i>призвище</i> <b>українською</b> мовою одногрупника про котрого ти хочеш отримати інформацію.\n<i>Для більшої інформації відправ /help</i>", parse_mode='HTML')
+    bot.send_message(message.chat.id, "<b>Привіт, тебе вітає телеграм бот групи ІК-61</b>\nБудь-ласка, введи <i>ім'я</i> або <i>призвище</i> <b>українською</b> мовою одногрупника про котрого ти хочеш отримати інформацію.\n\n<i>Для більшої інформації відправ</i> /help", parse_mode='HTML')
 
 @bot.message_handler(commands=['sites'])  
 def sen_sites(message):
@@ -40,8 +40,8 @@ def sen_sites(message):
 @bot.message_handler(commands=['help'])    
 def send_help(message):
     bot.send_message(message.chat.id,
-                    '/links - посилання на бесіди та канали'+
-                    '/sites - сайти КПІ'+
+                    '/links - посилання на бесіди та канали\n'+
+                    '/sites - сайти КПІ\n'+
                     '/other - додаткова інформація')
    
 
