@@ -37,6 +37,11 @@ def sen_sites(message):
                     '\n💻 <a href = "http://kpi.ua/fiot">ФІОТ</a>',
                     parse_mode='HTML')
     
+@bot.message_handler(commands=['links'])    
+def send_links(message):
+    bot.send_message(message.chat.id,
+                    '6⃣ 1⃣ <a hreg="https://t.me/joinchat/DwX0v1Mt-5QnUkFZBprmNA"ІК-61</a>'
+    
 @bot.message_handler(commands=['help'])    
 def send_help(message):
     bot.send_message(message.chat.id,
