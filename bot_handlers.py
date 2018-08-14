@@ -4,9 +4,8 @@ import gspread
 import config
 import re
 from bot import bot
-#import collections
 
-#Подключение Google drive
+#  Подключение Google drive
 from oauth2client.service_account import ServiceAccountCredentials
 
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
@@ -16,49 +15,45 @@ client = gspread.authorize(creds)
 sheet = client.open('IK-61 data.xlsx').sheet1
 
 
-#----------
+#  ----------
 
 
-#Настройка бота
-
-#bot = telebot.TeleBot(config.TOKEN)
-#print(bot.get_me())
-
-#----------
 @bot.message_handler(commands=['start'])  # Выполняется, когда пользователь нажимает на start
 def send_welcome(message):
-    bot.send_message(message.chat.id, "<b>Привіт, тебе вітає телеграм бот групи ІК-61</b>\nБудь-ласка, введи <i>ім'я</i> або <i>призвище</i> <b>українською</b> мовою одногрупника про котрого ти хочеш отримати інформацію.\n\n<i>Для більшої інформації відправ</i> /help", parse_mode='HTML')
+    bot.send_message(message.chat.id,
+                     "<b>Привіт, тебе вітає телеграм бот групи ІК-61</b>\nБудь-ласка, введи <i>ім'я</i> або "
+                     "<i>призвище</i> <b>українською</b> мовою одногрупника про котрого ти хочеш отримати "
+                     "інформацію.\n\n<i>Для більшої інформації відправ</i> /help",
+                     parse_mode='HTML')
 
-@bot.message_handler(commands=['sites'])  
+
+@bot.message_handler(commands=['sites'])
 def sen_sites(message):
-     bot.send_message(message.chat.id, 
-                    "сайти КПІ:\n\n"+
-                    "📅 <a href='http://rozklad.kpi.ua/Schedules/ViewSchedule.aspx?g=2c7c806a-e8c2-4dac-a36e-f53c2b9a51f6'>Розклад</a>"+
-                    '\n💻 <a href = "http://kpi.ua/fiot">ФІОТ</a>',
-                    parse_mode='HTML')
-    
-@bot.message_handler(commands=['links'])    
+    bot.send_message(message.chat.id,
+                     "сайти КПІ:\n\n" +
+                     "📅 <a href='http://rozklad.kpi.ua/Schedules/ViewSchedule.aspx?g=2c7c806a-e8c2-4dac-a36e"
+                     "-f53c2b9a51f6'>Розклад</a>" +
+                     '\n💻 <a href = "http://kpi.ua/fiot">ФІОТ</a>',
+                     parse_mode='HTML')
+
+
+@bot.message_handler(commands=['links'])
 def send_links(message):
     bot.send_message(message.chat.id,
-                    '6⃣1⃣ <a href="https://t.me/joinchat/DwX0v1Mt-5QnUkFZBprmNA">ІК-61</a>',parse_mode='HTML')
-    
-@bot.message_handler(commands=['help'])    
+                     '6⃣1⃣ <a href="https://t.me/joinchat/DwX0v1Mt-5QnUkFZBprmNA">ІК-61</a>', parse_mode='HTML')
+
+
+@bot.message_handler(commands=['help'])
 def send_help(message):
-    bot.send_message(message.chat.id,
-                    '/links - посилання на бесіди та канали\n'+
-                    '/sites - сайти КПІ\n'+
-                    '/other - додаткова інформація')
-   
+    bot.send_message(message.chat.id, '/links - посилання на бесіди та канали\n' + '/sites - сайти КПІ\n' +
+                     '/other - додаткова інформація')
 
-@bot.message_handler(content_types=["text"]) #Любой текст
+
+@bot.message_handler(content_types=["text"])  # Любой текст
 def answer_message(message):
-
     result = sheet.get_all_records()
     send = False
-    send_array = []
-    send_text = ""
-	
-    input_text_array = message.text.split()
+
     if len(message.text.split(' ')) > 1:
         bot.send_message(message.chat.id, "Будь-ласка, введи лише им'я або прізвище")
         send = True
@@ -66,8 +61,12 @@ def answer_message(message):
         for x in result:
             if message.text in x.get('All name').split(' '):
                 send = True
-                bot.send_message(message.chat.id, 'Я знайшов ось кого:\n\n'+'<b>ПІБ</b>: '+str(x.get('All name'))+'\n<b>Посилання на Телеграм: </b>'+str(x.get('TG'))+'\n<b>e-mail</b>: '+str(x.get('e-mail'))+'\n<b>Номер телефону</b>: '+'0'+str(x.get('tel.'))+'\n<b>День народження</b>: '+str(x.get('Birth date'))+'\n<b>Гуртожиток</b>: '+str(x.get('info')), parse_mode='HTML')
-    if send == False:
+                bot.send_message(message.chat.id, 'Я знайшов ось кого:\n\n' + '<b>ПІБ</b>: ' + str(x.get('All name')) +
+                                 '\n<b>Посилання на Телеграм: </b>' + str(x.get('TG')) + '\n<b>e-mail</b>: ' +
+                                 str(x.get('e-mail')) + '\n<b>Номер телефону</b>: ' + '0' + str(x.get('tel.')) +
+                                 '\n<b>День народження</b>: ' + str(x.get('Birth date')) + '\n<b>Гуртожиток</b>: ' +
+                                 str(x.get('info')), parse_mode='HTML')
+    if send is False:
         bot.send_message(message.chat.id, "Нажаль в списку немає такої людини, ти впевнений, що все вірно ввів?")
 
 
