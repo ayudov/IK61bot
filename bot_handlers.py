@@ -33,8 +33,9 @@ def sen_sites(message):
                      "сайти КПІ:\n\n" +
                      "📅 <a href='http://rozklad.kpi.ua/Schedules/ViewSchedule.aspx?g=2c7c806a-e8c2-4dac-a36e"
                      "-f53c2b9a51f6'>Розклад</a>" +
+                     '📖 <a href="https://telegra.ph/IK-61-Vol-31-06-08">Довідник IK-61</a>'
                      '\n💻 <a href = "http://kpi.ua/fiot">ФІОТ</a>'
-                     '\n🏫 <a href="http://kpi.ua/">Сайт КПІ</a>',
+                     '\n🏫 <a href="http://kpi.ua/">КПІ</a>',
                      parse_mode='HTML')
 
 
