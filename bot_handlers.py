@@ -53,7 +53,7 @@ def send_help(message):
 
 @bot.message_handler(commands=['other'])
 def send_other(message):
-    bot.send_message(message.from_user.id, '<i>Тут буде додаткова інформація</i>')
+    bot.send_message(message.from_user.id, '<i>Тут буде додаткова інформація</i>', parse_mode='HTML')
 
 
 @bot.message_handler(content_types=["text"])  # Любой текст
