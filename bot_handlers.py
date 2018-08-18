@@ -51,6 +51,11 @@ def send_help(message):
                      '/other - додаткова інформація\n')
 
 
+@bot.message_handler(commands=['other'])
+def send_other(message):
+    bot.send_message(message.from_user.id, '<i>Тут буде додаткова інформація</i>')
+
+
 @bot.message_handler(content_types=["text"])  # Любой текст
 def answer_message(message):
     result = sheet.get_all_records()
