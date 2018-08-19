@@ -65,7 +65,7 @@ def send_schedule(message):
     bot.send_photo(message.from_user.id, photo=open('photo/schedule ik-61.png', 'rb'))
     bot.send_message(message.from_user.id,
                      "<a href='http://rozklad.kpi.ua/Schedules/ViewSchedule.aspx?g=2c7c806a-e8c2-4dac-a36e"
-                     "-f53c2b9a51f6'>Посилання  на розклад</a>",
+                     "-f53c2b9a51f6'>Посилання на розклад</a>",
                      parse_mode='HTML')
 
 
