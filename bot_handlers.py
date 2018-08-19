@@ -84,5 +84,12 @@ def answer_message(message):
                          parse_mode='HTML')
 
 
+@bot.message_handler(
+    content_types=['sticker', 'user', 'chat', 'photo', 'audio', 'document', 'video', 'voice', 'contact', 'location',
+                   'venue', 'file'])
+def answer_sticker(message):
+    bot.send_message(message.chat.id, "Я розумію лише текст(")
+
+
 if __name__ == '__main__':
     bot.polling(none_stop=True)
