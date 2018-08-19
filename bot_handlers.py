@@ -26,7 +26,7 @@ def send_welcome(message):
 @bot.message_handler(commands=['sites'])
 def sen_sites(message):
     bot.send_message(message.from_user.id,
-                     "сайти КПІ:\n\n" +
+                     "Сайти КПІ:\n\n" +
                      "📅 <a href='http://rozklad.kpi.ua/Schedules/ViewSchedule.aspx?g=2c7c806a-e8c2-4dac-a36e"
                      "-f53c2b9a51f6'>Розклад</a>" +
                      '\n📖 <a href="https://telegra.ph/IK-61-Vol-31-06-08">Довідник IK-61</a>'
