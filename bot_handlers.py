@@ -40,7 +40,7 @@ def sen_sites(message):
 def send_links(message):
     bot.send_message(message.from_user.id,
                      '6⃣1⃣ <a href="https://t.me/joinchat/DwX0v1Mt-5QnUkFZBprmNA">ІК-61</a>'
-                     '\n⚠ <a href="https://t.me/joinchat/AAAAAE-kIuhUM1q1jqz2fQ">Important & Files IK-6X<a/>'
+                     '\n⚠ <a href="https://t.me/joinchat/AAAAAE-kIuhUM1q1jqz2fQ">Important & Files IK-6X</a>'
                      '\n👥 <a href="https://t.me/joinchat/AAAAAE-kIuhx0nGWBY8uiQ">IK-6X chat</a>',
                      parse_mode='HTML')
 
