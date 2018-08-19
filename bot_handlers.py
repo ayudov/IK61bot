@@ -48,7 +48,7 @@ def send_links(message):
 @bot.message_handler(commands=['help'])
 def send_help(message):
     bot.send_message(message.from_user.id,
-                     '/schedule - розклад (фото)'
+                     '/schedule - розклад (фото)\n'
                      '/links - посилання на бесіди та канали\n'
                      '/sites - сайти КПІ\n'
                      '/other - додаткова інформація')
