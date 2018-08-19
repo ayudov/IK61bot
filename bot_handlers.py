@@ -39,12 +39,16 @@ def sen_sites(message):
 @bot.message_handler(commands=['links'])
 def send_links(message):
     bot.send_message(message.from_user.id,
-                     '6⃣1⃣ <a href="https://t.me/joinchat/DwX0v1Mt-5QnUkFZBprmNA">ІК-61</a>', parse_mode='HTML')
+                     '6⃣1⃣ <a href="https://t.me/joinchat/DwX0v1Mt-5QnUkFZBprmNA">ІК-61</a>'
+                     '⚠ <a href="https://t.me/joinchat/AAAAAE-kIuhUM1q1jqz2fQ">Important & Files IK-6X<a/>'
+
+                     , parse_mode='HTML')
 
 
 @bot.message_handler(commands=['help'])
 def send_help(message):
-    bot.send_message(message.from_user.id, '/links - посилання на бесіди та канали\n' + '/sites - сайти КПІ\n' +
+    bot.send_message(message.from_user.id,
+                     '/links - посилання на бесіди та канали\n' + '/sites - сайти КПІ\n' +
                      '/other - додаткова інформація\n')
 
 
