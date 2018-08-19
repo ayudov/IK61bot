@@ -62,7 +62,7 @@ def send_other(message):
 
 @bot.message_handler(commands=['schedule'])
 def send_schedule(message):
-    bot.send_message(message.from_user.id, photo=open('photo/schedule ik-61.png', 'rb'))
+    bot.send_photo(message.from_user.id, photo=open('photo/schedule ik-61.png', 'rb'))
 
 
 @bot.message_handler(content_types=["text"])  # Любой текст
