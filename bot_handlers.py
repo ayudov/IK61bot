@@ -56,7 +56,7 @@ def send_help(message):
 @bot.message_handler(commands=['other'])
 def send_other(message):
     bot.send_message(message.from_user.id,
-                     'Запитання та побажання писати <a href="https://t.me/AndreyYudov>"сюди</a>',
+                     'Запитання та побажання писати <a href="https://t.me/AndreyYudov">сюди</a>',
                      parse_mode='HTML')
 
 
