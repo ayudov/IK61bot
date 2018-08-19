@@ -1,8 +1,4 @@
-﻿import telebot
-from telebot import types
-import gspread
-import config
-import re
+﻿import gspread
 from bot import bot
 
 #  Подключение Google drive
@@ -33,9 +29,10 @@ def sen_sites(message):
                      "сайти КПІ:\n\n" +
                      "📅 <a href='http://rozklad.kpi.ua/Schedules/ViewSchedule.aspx?g=2c7c806a-e8c2-4dac-a36e"
                      "-f53c2b9a51f6'>Розклад</a>" +
-                     '📖 <a href="https://telegra.ph/IK-61-Vol-31-06-08">Довідник IK-61</a>'
-                     '\n💻 <a href = "http://kpi.ua/fiot">ФІОТ</a>'
-                     '\n🏫 <a href="http://kpi.ua/">КПІ</a>',
+                     '\n📖 <a href="https://telegra.ph/IK-61-Vol-31-06-08">Довідник IK-61</a>'
+                     '\n💻 <a href="http://tc.kpi.ua/uk/"КТК</a>'
+                     '\n🏫 <a href = "http://kpi.ua/fiot">ФІОТ</a>'
+                     '\n🚁 <a href="http://kpi.ua/">КПІ</a>',
                      parse_mode='HTML')
 
 
@@ -68,14 +65,16 @@ def answer_message(message):
         for x in result:
             if message.text in x.get('All name').split(' '):
                 send = True
-                bot.send_message(message.from_user.id, 'Я знайшов ось кого:\n\n' + '<b>ПІБ</b>: ' + str(x.get('All name')) +
+                bot.send_message(message.from_user.id,
+                                 'Я знайшов ось кого:\n\n' + '<b>ПІБ</b>: ' + str(x.get('All name')) +
                                  '\n<b>Посилання на Телеграм: </b>' + str(x.get('TG')) + '\n<b>e-mail</b>: ' +
                                  str(x.get('e-mail')) + '\n<b>Номер телефону</b>: ' + '0' + str(x.get('tel.')) +
                                  '\n<b>День народження</b>: ' + str(x.get('Birth date')) + '\n<b>Гуртожиток</b>: ' +
                                  str(x.get('info')), parse_mode='HTML')
     if send is False:
         bot.send_message(message.from_user.id, "Нажаль в списку немає такої людини.\nТи впевнений, що все вірно ввів? "
-                                          "Українською мовою та з великої літери?)")
+                                               "<b>Українською</b> мовою та з <b>великої</b> літери?)",
+                         parse_mode='HTML')
 
 
 if __name__ == '__main__':
