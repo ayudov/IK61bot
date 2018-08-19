@@ -60,6 +60,11 @@ def send_other(message):
                      parse_mode='HTML')
 
 
+@bot.message_handler(commands=['schedule'])
+def send_schedule(message):
+    bot.send_message(message.from_user.id, photo=open('photo/schedule ik-61.png', 'rb'))
+
+
 @bot.message_handler(content_types=["text"])  # Любой текст
 def answer_message(message):
     result = sheet.get_all_records()
