@@ -72,6 +72,15 @@ def send_schedule(message):
                      parse_mode='HTML')
 
 
+@bot.message_handler(commands=['all'])
+def send_all(message):
+    bot.send_photo(message.from_user.id, photo=open('photo/group_ik61.png', 'rb'))
+    bot.send_message(message.from_user.id,
+                     "<a href='https://docs.google.com/spreadsheets/d/1jdARV_Thoq19gII-CK1sHkcmK-s8ePa5Jf9aOoSP2i0"
+                     "/edit?usp=sharing'>Посилання на список группи</a>",
+                     parse_mode='HTML')
+
+
 @bot.message_handler(content_types=["text"])  # Любой текст
 def answer_message(message):
     result = sheet.get_all_records()
