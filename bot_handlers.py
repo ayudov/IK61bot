@@ -21,7 +21,8 @@ def send_welcome(message):
     bot.send_message(message.from_user.id,
                      "<b>Привіт, тебе вітає телеграм бот групи ІК-61</b>\nБудь-ласка, введи <i>ім'я</i> або "
                      "<i>призвище</i> <b>українською</b> мовою одногрупника про котрого ти хочеш отримати "
-                     "інформацію.\n\n<i>Для додаткової інформації відправ команду</i> /help",
+                     "інформацію.\n\n<i>Для додаткової інформації відправ команду</i> /help"
+                     '\n\n<i>Будь-ласка, повідомляйте про будь-які зміни в інформації автору</i>',
                      parse_mode='HTML')
 
 
@@ -62,7 +63,8 @@ def send_help(message):
 @bot.message_handler(commands=['other'])
 def send_other(message):
     bot.send_message(message.from_user.id,
-                     'Запитання та побажання писати <a href="https://t.me/AndreyYudov">сюди</a>',
+                     'Запитання та побажання писати <a href="https://t.me/AndreyYudov">сюди</a>'
+                     '\n\n<i>Будь-ласка, повідомляйте про будь-які зміни в інформації автору</i>',
                      parse_mode='HTML')
 
 
