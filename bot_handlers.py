@@ -111,14 +111,14 @@ def send_month_bday(message):
         bot.send_message(message.chat.id, "В цьому місяці ніхто не народжувався")
 
         
-@bot.message_handler(commands=['nearest'])
+'''@bot.message_handler(commands=['nearest'])
 def send_nearest_bd(message):
     result = sheet.get_all_records()
     month_list = []
     for x in result:
         month = x.get('Birth date').split('.')
         month_list.append(month[1])
-    print(month_list)
+    print(month_list)'''
     
 @bot.message_handler(content_types=["text"])  # Любой текст
 def answer_message(message):
