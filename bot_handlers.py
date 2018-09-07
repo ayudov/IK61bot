@@ -99,13 +99,15 @@ def send_all(message):
 @bot.message_handler(commands=['this_month'])
 def send_month_bday(message):
     result = sheet.get_all_records()
+    send = False
+    
     for x in result:
         month = x.get('Birth date').split('.')
-        #bot.send_message(message.chat.id, month[1])
-        print(type(month))
         if datetime.now().month == int(month[1]):
-            bot.send_message(message.chat.id, 'Есть др в этом месяце')
-                     
+            bot.send_message(message.chat.id, 'В цьому місяці день народження в ' + str(x.get('All name')) + ', ' + str(x.get('Birth date')))
+            send = True
+    if send is False:
+        bot.send_message(message.chat.id, "В цьому місяці ніхто не народжувався")
 
 
 @bot.message_handler(content_types=["text"])  # Любой текст
