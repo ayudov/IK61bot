@@ -70,7 +70,7 @@ def send_other(message):
 
 @bot.message_handler(commands=['schedule'])
 def send_schedule(message):
-    bot.send_photo(message.from_user.id, photo=open('photo/schedule ik-61.png', 'rb'))
+    bot.send_photo(message.chat.id, photo=open('photo/schedule ik-61.png', 'rb'))
     bot.send_message(message.chat.id,
                      "<a href='http://rozklad.kpi.ua/Schedules/ViewSchedule.aspx?g=2c7c806a-e8c2-4dac-a36e"
                      "-f53c2b9a51f6'>Посилання на розклад</a>",
@@ -81,7 +81,7 @@ def send_schedule(message):
 def send_all(message):
     result = sheet.get_all_records()
     
-    bot.send_photo(message.from_user.id, photo=open('photo/group_ik61.png', 'rb'))
+    bot.send_photo(message.chat.id, photo=open('photo/group_ik61.png', 'rb'))
     bot.send_message(message.chat.id,
                      "<a href='https://docs.google.com/spreadsheets/d/1jdARV_Thoq19gII-CK1sHkcmK-s8ePa5Jf9aOoSP2i0"
                      "/edit?usp=sharing'>Посилання на список групи</a>",
