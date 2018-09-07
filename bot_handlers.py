@@ -27,7 +27,7 @@ def send_welcome(message):
 
 
 @bot.message_handler(commands=['sites'])
-def sen_sites(message):
+def send_sites(message):
     bot.send_message(message.from_user.id,
                      "Сайти КПІ:\n\n" +
                      "📅 <a href='http://rozklad.kpi.ua/Schedules/ViewSchedule.aspx?g=2c7c806a-e8c2-4dac-a36e"
