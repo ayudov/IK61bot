@@ -95,7 +95,8 @@ def send_all(message):
                                  str(x.get('e-mail')) + '\n<b>Номер телефону</b>: ' + '0' + str(x.get('tel.')) +
                                  '\n<b>День народження</b>: ' + str(x.get('Birth date')) + '\n<b>Гуртожиток</b>: ' +
                                  str(x.get('info')), parse_mode='HTML')
-                                 
+                            
+                            
 @bot.message_handler(commands=['this_month'])
 def send_month_bday(message):
     result = sheet.get_all_records()
@@ -109,7 +110,16 @@ def send_month_bday(message):
     if send is False:
         bot.send_message(message.chat.id, "В цьому місяці ніхто не народжувався")
 
-
+        
+@bot.message_handler(commands=['nearest'])
+def send_nearest_bd(message):
+    result = sheet.get_all_records()
+    month_list = []
+    for x in result:
+        month = x.get('Birth date').split('.')
+        month_list.append(month[1])
+    print(month_list)
+    
 @bot.message_handler(content_types=["text"])  # Любой текст
 def answer_message(message):
     result = sheet.get_all_records()
