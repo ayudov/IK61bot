@@ -1,5 +1,6 @@
 ﻿import gspread
 from bot import bot
+from datetime import datetime
 
 #  Подключение Google drive
 from oauth2client.service_account import ServiceAccountCredentials
@@ -94,7 +95,13 @@ def send_all(message):
                                  str(x.get('e-mail')) + '\n<b>Номер телефону</b>: ' + '0' + str(x.get('tel.')) +
                                  '\n<b>День народження</b>: ' + str(x.get('Birth date')) + '\n<b>Гуртожиток</b>: ' +
                                  str(x.get('info')), parse_mode='HTML')
-    
+                                 
+@bot.message_handler(commands=['this_month'])
+def send_month_bday(message):
+    result = sheet.get_all_records()
+    for x in result:
+        if datetime.now().month = 9:
+            bot.send_message(message.chat.id, 'Сегодня 9-й месяц')
                      
 
 
