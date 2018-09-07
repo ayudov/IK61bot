@@ -56,7 +56,7 @@ def send_help(message):
                      '/sites - сайти КПІ\n'
                      '/other - додаткова інформація\n'
                      '/all - вся група\n'
-                     '<a href = "https://telegra.ph/IK-61-Vol-31-06-08">Довідник</a>/n/n'
+                     '<a href = "https://telegra.ph/IK-61-Vol-31-06-08">Довідник</a>\n\n'
                      '<i>Будь-ласка, повідомляйте про будь-які зміни в інформації автору</i>',
                      parse_mode='HTML')
 
