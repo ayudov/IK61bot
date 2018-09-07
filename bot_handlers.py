@@ -103,7 +103,7 @@ def send_month_bday(message):
         month = x.get('Birth date').split('.')
         #bot.send_message(message.chat.id, month[1])
         print(type(month))
-        if datetime.now().month == month[1]:
+        if datetime.now().month == int(month[1]):
             bot.send_message(message.chat.id, 'Есть др в этом месяце')
                      
 
