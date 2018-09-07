@@ -100,8 +100,8 @@ def send_all(message):
 def send_month_bday(message):
     result = sheet.get_all_records()
     for x in result:
-        if datetime.now().month == 9:
-            bot.send_message(message.chat.id, 'Сегодня 9-й месяц')
+        if datetime.now().month == x.get('Birth date').split('.')[1]:
+            bot.send_message(message.chat.id, 'Есть др в этом месяце')
                      
 
 
