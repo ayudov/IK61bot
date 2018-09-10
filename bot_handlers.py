@@ -82,6 +82,7 @@ def send_schedule(message):
 @bot.message_handler(commands=['all'])
 def send_all(message):
     result = sheet.get_all_records()
+    send_all = ''
     
     bot.send_photo(message.chat.id, photo=open('photo/group_ik61.png', 'rb'))
     bot.send_message(message.chat.id,
@@ -90,7 +91,7 @@ def send_all(message):
                      parse_mode='HTML')
 
     for x in result:
-        send_all = ''
+        
         send_all=send_all + str('Я знайшов ось кого:\n\n' + '<b>ПІБ</b>: ' + str(x.get('All name')) +
                                  '\n<b>Посилання на Телеграм: </b>' + str(x.get('TG')) + '\n<b>e-mail</b>: ' +
                                  str(x.get('e-mail')) + '\n<b>Номер телефону</b>: ' + '0' + str(x.get('tel.')) +
@@ -102,7 +103,7 @@ def send_all(message):
     #                             str(x.get('e-mail')) + '\n<b>Номер телефону</b>: ' + '0' + str(x.get('tel.')) +
     #                             '\n<b>День народження</b>: ' + str(x.get('Birth date')) + '\n<b>Гуртожиток</b>: ' +
     #                             str(x.get('info')), parse_mode='HTML')
-        bot.send_message(message.chat.id, send_all, parse_mode='HTML')
+    bot.send_message(message.chat.id, send_all, parse_mode='HTML')
                             
                             
 @bot.message_handler(commands=['this_month'])
