@@ -83,6 +83,7 @@ def send_schedule(message):
 def send_all(message):
     result = sheet.get_all_records()
     send_all = 'Я знайшов ось кого:\n'
+    count = 0
     
     bot.send_photo(message.chat.id, photo=open('photo/group_ik61.png', 'rb'))
     bot.send_message(message.chat.id,
