@@ -90,6 +90,7 @@ def send_all(message):
                      parse_mode='HTML')
 
     for x in result:
+        str send_all
         send_all=send_all + 'Я знайшов ось кого:\n\n' + '<b>ПІБ</b>: ' + str(x.get('All name')) +
                                  '\n<b>Посилання на Телеграм: </b>' + str(x.get('TG')) + '\n<b>e-mail</b>: ' +
                                  str(x.get('e-mail')) + '\n<b>Номер телефону</b>: ' + '0' + str(x.get('tel.')) +
