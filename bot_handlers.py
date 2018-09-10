@@ -88,8 +88,14 @@ def send_all(message):
                      "<a href='https://docs.google.com/spreadsheets/d/1jdARV_Thoq19gII-CK1sHkcmK-s8ePa5Jf9aOoSP2i0"
                      "/edit?usp=sharing'>Посилання на список групи</a>",
                      parse_mode='HTML')
+
     for x in result:
-        bot.send_message(message.chat.id,
+        send_all=send_all + 'Я знайшов ось кого:\n\n' + '<b>ПІБ</b>: ' + str(x.get('All name')) +
+                                 '\n<b>Посилання на Телеграм: </b>' + str(x.get('TG')) + '\n<b>e-mail</b>: ' +
+                                 str(x.get('e-mail')) + '\n<b>Номер телефону</b>: ' + '0' + str(x.get('tel.')) +
+                                 '\n<b>День народження</b>: ' + str(x.get('Birth date')) + '\n<b>Гуртожиток</b>: ' +
+                                 str(x.get('info'))
+    bot.send_message(message.chat.id,
                                  'Я знайшов ось кого:\n\n' + '<b>ПІБ</b>: ' + str(x.get('All name')) +
                                  '\n<b>Посилання на Телеграм: </b>' + str(x.get('TG')) + '\n<b>e-mail</b>: ' +
                                  str(x.get('e-mail')) + '\n<b>Номер телефону</b>: ' + '0' + str(x.get('tel.')) +
