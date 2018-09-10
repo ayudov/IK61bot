@@ -96,12 +96,12 @@ def send_all(message):
                                  str(x.get('e-mail')) + '\n<b>Номер телефону</b>: ' + '0' + str(x.get('tel.')) +
                                  '\n<b>День народження</b>: ' + str(x.get('Birth date')) + '\n<b>Гуртожиток</b>: ' +
                                  str(x.get('info'))
-    bot.send_message(message.chat.id,
+    '''bot.send_message(message.chat.id,
                                  'Я знайшов ось кого:\n\n' + '<b>ПІБ</b>: ' + str(x.get('All name')) +
                                  '\n<b>Посилання на Телеграм: </b>' + str(x.get('TG')) + '\n<b>e-mail</b>: ' +
                                  str(x.get('e-mail')) + '\n<b>Номер телефону</b>: ' + '0' + str(x.get('tel.')) +
                                  '\n<b>День народження</b>: ' + str(x.get('Birth date')) + '\n<b>Гуртожиток</b>: ' +
-                                 str(x.get('info')), parse_mode='HTML')
+                                 str(x.get('info')), parse_mode='HTML')'''
                             
                             
 @bot.message_handler(commands=['this_month'])
