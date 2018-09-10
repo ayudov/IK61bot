@@ -98,7 +98,7 @@ def send_all(message):
                                  str(x.get('e-mail')) + '\n<b>Номер телефону</b>: ' + '0' + str(x.get('tel.')) +
                                  '\n<b>День народження</b>: ' + str(x.get('Birth date')) + '\n<b>Гуртожиток</b>: ' +
                                  str(x.get('info')))
-        count ++
+        count = count + 1
         if count == len(result)/2:
             bot.send_message(message.chat.id, send_all, parse_mode='HTML')
             send_all = ''
