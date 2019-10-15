@@ -1,3 +1,9 @@
-TOKEN = '643179759:AAEjpuampTFtBHNKgoyngj2-L0K2DSH7mb0'
-# TOKEN = '639482760:AAH6gMgJrSzKzaGAZA6WVCaQnjiFrODvwPM'
+ 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+
+TOKEN = os.getenv('TOKEN')
+
+print('your TOKEN:' + TOKEN)
 APP_NAME = 'ik61bot'
